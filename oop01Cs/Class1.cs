@@ -10,10 +10,7 @@ namespace oop01Cs
     {
         #region part1Ex1
 
-        private double width;
-        private double hight;
 
-        public 
         #endregion
 
     }
