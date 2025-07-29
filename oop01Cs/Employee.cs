@@ -1,149 +1,102 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+//-------------(part 2)
 
-namespace oop01Cs
+using System;
+
+enum Gender
 {
-    internal struct Employee
-    //{
-    //    private int id;
-    //    private string name;
-    //    private double salary;
-    //    private string address;
+    Male,
+    Female
+}
 
-    //    #region Apply Encapsulation user setter getter method
+class Employee
+{
 
-
-    //    //// Apply Encapsulation user setter getter method
-
-    //    //// setter 
-    //    //public void setId(int id)
-    //    //{
-    //    //    this.id = id;
-    //    //}
-    //    //// getter
-    //    //public int GetId()
-    //    //{
-    //    //    return id;
-    //    //}
-
-    //    //// setter name
-    //    //public void setName(string name)
-    //    //{
-    //    //    this.name = name;
-    //    //}
-    //    //// getter name
-    //    //public string Getname()
-    //    //{
-    //    //    return name;
-    //    //}
-
-    //    ////setter
-    //    //public void setSalary(double salary)
-    //    //{
-    //    //    this.salary = salary;
-    //    //}
-    //    ////getter
-    //    //public double Getsalary()
-    //    //{
-    //    //    return salary;
-    //    //}
-
-    //    //public Employee(int id,string name,double salary)
-    //    //{
-    //    //    setId(id);
-    //    //    setName(name);
-    //    //    setSalary(salary);
-    //    //}
-
-    //    //public override string ToString()
-    //    //{
-    //    //    return $"Id : {id},name:: {name},salary::{salary}";
-    //    //}
+    private int id;
+    private string name;
+    private double salary;
+    private Gender gender;
 
 
-    //    #endregion
+    public int ID
+    {
+        get
+        {
+            return id;
+        }
+        set
+        {
+            id = value;
+        }
+    }
 
+    public string Name
+    {
+        get
+        {
+            return name;
+        }
+        set
+        {
+            name = value;
+        }
+    }
 
+    public double Salary
+    {
+        get
+        {
+            return salary;
+        }
+        set
+        {
+            if (value < 3000)
+                salary = 3000;
+            else
+                salary = value;
+        }
+    }
 
-
-    //    //// Apply Encapsulation user setter getter method
-    //    ///
-    //    // 1. full property
-
-    //    //Id
-    //    public int Id
-    //    {
-    //        // set
-    //        // get
-
-    //        set
-    //        {
-    //            id = value;
-    //        }
-    //        get
-    //        {
-    //            return id;
-    //        }
-
-    //    }
-
-    //    // name
-    //    public string Name
-    //    {
-    //        // set
-    //        // get
-
-    //        set
-    //        {
-    //            name = value;
-    //        }
-    //        get
-    //        {
-    //            return name;
-    //        }
-
-    //    }
-
-    //    // salary
-    //    public double Salary
-    //    {
-    //        // set
-    //        // get
-
-    //        set
-    //        {
-    //            salary = value;
-    //        }
-    //        get
-    //        {
-    //            return salary;
-    //        }
-
-    //    }
-    //    public string Address
-    //    {
-    //        set
-    //        {
-    //            address = value;
-    //        }
-    //        get
-    //        {
-    //            return address;
-    //        }
-    //    }
-
-
-    //    // 2. Automatic propperty
-    //    //public string Address { set : get }
-
-    //    // 3. Special property  [Indexer]
-
-
-
+    public Gender Gender
+    {
+        get
+        {
+            return gender;
+        }
+        set
+        {
+            gender = value;
+        }
     }
 
 
+    public Employee(int id, string name, double salary, Gender gender)
+    {
+        ID = id;
+        Name = name;
+        Salary = salary;
+        Gender = gender;
+    }
+
+    public override string ToString()
+    {
+        return $"ID: {ID}, Name: {Name}, Salary: {Salary}, Gender: {Gender}";
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Employee[] employees = new Employee[3];
+
+        employees[0] = new Employee(1, "Ahmed", 3500, Gender.Male);
+        employees[1] = new Employee(2, "Sara", 2500, Gender.Female);
+        employees[2] = new Employee(3, "Omar", 5000, Gender.Male);
+
+        foreach (Employee emp in employees)
+        {
+            Console.WriteLine(emp);
+        }
+    }
 }
